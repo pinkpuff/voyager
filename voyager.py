@@ -684,8 +684,8 @@ def customize_recall(ff4):
 # have to be KOed in order for it to revive ANY of them. I didn't
 # create this patch and thus have no idea how to fix it. I still feel
 # like it's a huge boost to Edward though, even with that bug.
-def customize_heal(ff4):
- ff4.rom.apply_patch("../Resources/Custom Salve.ips", "unheadered")
+def customize_heal(ff4, patchpath):
+ ff4.rom.apply_patch(patchpath + "Custom Salve.ips", "unheadered")
 
 # Change Bear into Rage (self-berserk) and give it to Cid.
 # Only does this if J-commands are enabled.
@@ -735,10 +735,10 @@ def customize_bear(ff4):
 
 # This is just a shortcut to apply all the command customizations in
 # one function call.
-def customize_commands(ff4):
+def customize_commands(ff4, patchpath):
  customize_pray(ff4)
  customize_recall(ff4)
- customize_heal(ff4)
+ customize_heal(ff4, patchpath)
  customize_bear(ff4)
 
 # In vanilla, at sufficiently high levels, Yang suddenly stops gaining
@@ -814,8 +814,8 @@ def exit_mount_ordeals(ff4):
 
 # This applies an IPS patch that makes it so that the black chocobo no
 # longer automatically goes home when you remount it.
-def black_chocobo_fix(ff4):
- ff4.rom.apply_patch("../Resources/Black Chocobo Fix.ips", "headered")
+def black_chocobo_fix(ff4, patchpath):
+ ff4.rom.apply_patch(patchpath + "Black Chocobo Fix.ips", "headered")
 
 # This allows you to land next to Kaipo instead of having to walk all
 # that way across the desert.
@@ -839,10 +839,10 @@ def kaipo_landing_tile(ff4):
 
 # This is simply a shortcut to apply all the map related customizations
 # in a single function call.
-def customize_maps(ff4):
+def customize_maps(ff4, patchpath):
  exit_sealed_cave(ff4)
  exit_mount_ordeals(ff4)
- black_chocobo_fix(ff4)
+ black_chocobo_fix(ff4, patchpath)
  kaipo_landing_tile(ff4)
 
 # Pale Dim always seemed to me like a "Holy" element dragon,

@@ -32,6 +32,12 @@ else:
  print(len(args))
  outputfile = args[2]
 
+# You can move the included IPS patch files to a different folder, but
+# if you do, make sure to put the new path in the quotes here.
+# (Keep the slash symbol at the end.)
+
+patchpath = "ips/"
+
 ff4 = FF4Rom(inputfile)
 ff4.text.assign_symbol(0xCB, "+")
 ff4.text.assign_symbol(0xCC, "(")
@@ -101,7 +107,7 @@ voyager.customize_equipment(ff4)
 #  * Recall picks better spells, and only ones he doesn't already know
 #  * Salve lets you pick an item (Life potion is slightly buggy)
 #  * Rage causes Cid to berserk himself (replaces Yang's Bear)
-voyager.customize_commands(ff4)
+voyager.customize_commands(ff4, patchpath)
 
 # This changes some characters' levelups:
 #  * Yang continues to get HP gains all the way to the end
@@ -121,7 +127,7 @@ voyager.customize_monsters(ff4)
 # Allows Exit to work on Mount Ordeals and the Sealed Cave, adds a tile
 # of grass next to Kaipo, and prevents the black chocobo from going
 # home when you remount it; you just get back on it and can fly again.
-voyager.customize_maps(ff4)
+voyager.customize_maps(ff4, patchpath)
 
 # Turns all the J-Items into various normal items like potions and
 # tents. Why not just turn off the J-Items flag? Because then I don't
