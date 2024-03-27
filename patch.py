@@ -3,7 +3,7 @@ import sys
 # This utility requires the Gamingway library to be installed somewhere
 # on your computer. Replace the path below with the path to the folder
 # containing the gamingway.py file.
-sys.path.append("C:/Path/To/Gamingway/Source")
+sys.path.append("E:/Projects/Hacking/Gamingway/Source")
 
 from gamingway import FF4Rom
 import voyager

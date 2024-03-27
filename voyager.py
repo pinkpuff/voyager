@@ -556,7 +556,7 @@ def create_fairy_harp(ff4):
  line = line.lstrip().ljust(27)
  ff4.POISONAXE.description[1] = line
 
-def create_sledge_hammer():
+def create_sledge_hammer(ff4):
  ff4.SLEDGEHAMMER = ff4.DRAINSPEAR
  ff4.SLEDGEHAMMER.equips = ff4.EARTHHAMMER.equips
  ff4.SLEDGEHAMMER.ranged = False
@@ -638,6 +638,7 @@ def customize_gaia_gear(ff4):
 
 def customize_equipment(ff4):
  create_fairy_harp(ff4)
+ create_sledge_hammer(ff4)
  remove_dispel_from_staff(ff4)
  customize_venom_axe(ff4)
  customize_black_shirt(ff4)
@@ -695,17 +696,10 @@ def customize_bear(ff4):
  yang1 = ff4.YANG1
  yang2 = ff4.YANG2
  cid = ff4.CID1
- # yang1 = ff4.actors[7]
- # yang2 = ff4.actors[13]
- # cid = ff4.actors[14]
  bear = ff4.commands.index(ff4.BEAR_COMMAND)
  fight = ff4.commands.index(ff4.FIGHT_COMMAND)
  item = ff4.commands.index(ff4.ITEM_COMMAND)
  blank = 0xFF
- # bear = 0x0F
- # fight = 0x00
- # item = 0x01
- # blank = 0xFF
  
  # First determine if J-commands are enabled. We do this by checking
  # if Yang has the Bear command.
@@ -732,7 +726,21 @@ def customize_bear(ff4):
   # Also give Berserk a 100% hit rate so that Cid never wastes a turn
   # doing nothing by selecting this command.
   ff4.BERSK_SPELL.hit = 100
-
+  
+  # Change the battle message from "Defense up!" to "Berserked!!"
+  # for index in range(0x3B):
+   # pointer = ff4.rom.data[0x7B200 + index * 2] + ff4.rom.data[0x7B200 + index * 2 + 1] * 0x100 + 0x70200
+   # message = ""
+   # letter = ff4.rom.data[pointer]
+   # while letter != 0:
+    # message += chr(letter)
+    # pointer += 1
+    # letter = ff4.rom.data[pointer]
+   # print("{}: {}".format(index, ff4.text.asciitext(message)))
+  bearmessage = 0x1E8A5
+  ff4.rom.data[bearmessage] = 50
+  # print("{}".format(bearmessage))
+   
 # This is just a shortcut to apply all the command customizations in
 # one function call.
 def customize_commands(ff4, patchpath):
@@ -792,7 +800,125 @@ def customize_levelups(ff4):
  fix_yang_hp(ff4)
  improve_tellah_levels(ff4)
  improve_dk_levels(ff4)
+
+# Makes everyone start at level 10.
+# It's important to call this AFTER the function that affects spell
+# progression since it computes what spells should be converted into
+# starting spells based on their new starting level.
+def consistent_starting_levels(ff4):
+ # pass
+
+ # Rydia
+ ff4.RYDIA.level = 10
+ ff4.RYDIA.stats = [6, 9, 5, 15, 9]
+ ff4.RYDIA.max_hp = 115
+ ff4.RYDIA.max_mp = 60
+ ff4.RYDIA.current_hp = ff4.RYDIA.max_hp
+ ff4.RYDIA.current_mp = ff4.RYDIA.max_mp
+ ff4.RYDIA.xp = 2891
+ ff4.RYDIA.tnl = ff4.RYDIA.xp
+ for level in range(ff4.RYDIA.level + 1):
+  if level > 0:
+   ff4.RYDIA_BLACK.spells[0] += ff4.RYDIA_BLACK.spells[level]
+   ff4.RYDIA_BLACK.spells[level] = []
+   ff4.RYDIA_WHITE.spells[0] += ff4.RYDIA_WHITE.spells[level]
+   ff4.RYDIA_WHITE.spells[level] = []
  
+ # Edward
+ ff4.EDWARD.level = 10
+ ff4.EDWARD.stats = [8, 12, 4, 9, 9]
+ ff4.EDWARD.max_hp = 115
+ ff4.EDWARD.current_hp = ff4.EDWARD.max_hp
+ ff4.EDWARD.xp = 2570
+ ff4.EDWARD.tnl = ff4.EDWARD.xp
+ 
+ # Paladin Cecil
+ ff4.PALADINCECIL.level = 10
+ ff4.PALADINCECIL.stats = [13, 15, 13, 9, 13]
+ ff4.PALADINCECIL.max_hp = 760
+ ff4.PALADINCECIL.max_mp = 40
+ ff4.PALADINCECIL.current_hp = ff4.PALADINCECIL.max_hp
+ ff4.PALADINCECIL.current_mp = ff4.PALADINCECIL.max_mp
+ ff4.PALADINCECIL.xp = 1980
+ ff4.PALADINCECIL.tnl = ff4.PALADINCECIL.xp
+ for level in range(ff4.PALADINCECIL.level + 1):
+  if level > 0:
+   ff4.CECIL_WHITE.spells[0] += ff4.CECIL_WHITE.spells[level]
+   ff4.CECIL_WHITE.spells[level] = []
+ 
+ # Cid
+ ff4.CID.level = 10
+ ff4.CID.stats = [11, 6, 14, 5, 5]
+ ff4.CID.max_hp = 260
+ ff4.CID.current_hp = ff4.CID.max_hp
+ ff4.CID.xp = 2131
+ ff4.CID.tnl = ff4.CID.xp
+ ff4.CID.levelups[10].tnl = 891
+ ff4.CID.levelups[11].tnl = 1081
+ ff4.CID.levelups[12].tnl = 1311
+ ff4.CID.levelups[13].tnl = 1590
+ ff4.CID.levelups[14].tnl = 1928
+ ff4.CID.levelups[15].tnl = 2338
+ ff4.CID.levelups[16].tnl = 2834
+ ff4.CID.levelups[17].tnl = 3436
+ ff4.CID.levelups[18].tnl = 4165
+ ff4.CID.levelups[19].tnl = 5049
+ for index in range(10, 20):
+  ff4.CID.levelups[index].statbonus.stats[0] = True
+  ff4.CID.levelups[index].statbonus.stats[1] = (index % 3 == 0)
+  ff4.CID.levelups[index].statbonus.stats[2] = True
+  ff4.CID.levelups[index].statbonus.stats[3] = False
+  ff4.CID.levelups[index].statbonus.stats[4] = False
+  ff4.CID.levelups[index].statbonus.amount = 1
+  ff4.CID.levelups[index].hp = int((index - ff4.CID.level) / 4) * 8 + 40
+  ff4.CID.levelups[index].mp = 0
+
+ # Edge
+ ff4.EDGE.level = 10
+ ff4.EDGE.stats = [5, 12, 7, 5, 5]
+ ff4.EDGE.max_hp = 120
+ ff4.EDGE.max_mp = 30
+ ff4.EDGE.current_hp = ff4.EDGE.max_hp
+ ff4.EDGE.current_mp = ff4.EDGE.max_mp
+ ff4.EDGE.xp = 1809
+ ff4.EDGE.tnl = ff4.EDGE.xp
+ ff4.EDGE.levelups[10].tnl = 1401
+ ff4.EDGE.levelups[11].tnl = 1602
+ ff4.EDGE.levelups[12].tnl = 1831
+ ff4.EDGE.levelups[13].tnl = 2093
+ ff4.EDGE.levelups[14].tnl = 2392
+ ff4.EDGE.levelups[15].tnl = 2734
+ ff4.EDGE.levelups[16].tnl = 3125
+ ff4.EDGE.levelups[17].tnl = 3572
+ ff4.EDGE.levelups[18].tnl = 4083
+ ff4.EDGE.levelups[19].tnl = 4667
+ ff4.EDGE.levelups[20].tnl = 5334
+ ff4.EDGE.levelups[21].tnl = 6097
+ ff4.EDGE.levelups[22].tnl = 6969
+ ff4.EDGE.levelups[23].tnl = 7965
+ ff4.EDGE.levelups[24].tnl = 9103
+ for index in range(10, 25):
+  ff4.EDGE.levelups[index].statbonus.stats[0] = True
+  ff4.EDGE.levelups[index].statbonus.stats[1] = (index % 4 < 3)
+  ff4.EDGE.levelups[index].statbonus.stats[2] = (index % 3 > 0)
+  ff4.EDGE.levelups[index].statbonus.stats[3] = (index % 2 == 0)
+  ff4.EDGE.levelups[index].statbonus.stats[4] = (index % 2 == 1)
+  ff4.EDGE.levelups[index].statbonus.amount = 1
+  ff4.EDGE.levelups[index].hp = int((index - ff4.EDGE.level) / 5) * 8 + 34
+  ff4.EDGE.levelups[index].mp = 2
+ 
+ # Change some people's equips so they don't start with crazy gear.
+ ff4.EDGE1.equipped[0] = 0x3B
+ ff4.EDGE1.equipped[1] = 0
+ ff4.EDGE1.ammo[1] = 0
+ ff4.EDGE1.equipped[2] = 0x78
+ ff4.EDGE1.equipped[3] = 0x8E
+ ff4.EDGE1.equipped[4] = 0
+ ff4.FUSOYA1.equipped[0] = 0x10
+ ff4.FUSOYA1.equipped[2] = 0
+ ff4.FUSOYA1.equipped[3] = 0x8E
+ ff4.FUSOYA1.equipped[4] = 0xA8
+
 # Makes the sealed cave exitable from everywhere but crystal room and
 # evil wall room. You shouldn't be able to skip the boss fight just by
 # casting Exit, but there's no need to prevent people from skipping a
@@ -1078,33 +1204,42 @@ def convert_jitems(ff4):
  # of the item index to decide which one. I could randomize it, but
  # doing it this way ensures that the same seed will always produce
  # the same output rom, even when patched with this utility.
- for map in ff4.maps:
+ changed_treasures = []
+ for index, map in enumerate(ff4.maps):
   for trigger in map.triggers:
    if trigger.type == "treasure":
+    # if trigger.trapped:
+     # print("Trapped chest found in map {}".format(index))
+     # if index in [314, 380]:
+      # print(trigger.display(ff4))
+      # trigger.trapped = False
     if not trigger.has_money:
      item = ff4.items[trigger.contents]
      even = trigger.contents % 2
+     changed = True
      if item in tier2:
       if even:
        trigger.contents = ff4.items.index(ff4.LIFE)
       else:
-       trigger.contents = ff4.items.index(ff4.LIFE)
+       trigger.contents = ff4.items.index(ff4.TENT)
      elif item in tier3:
       if even:
-       trigger.contents = ff4.items.index(ff4.TENT)
+       trigger.contents = ff4.items.index(ff4.CABIN)
       else:
        trigger.contents = ff4.items.index(ff4.ETHER1)
      elif item in tier4:
-      if item != ff4.CABIN:
-       if even:
-        trigger.contents = ff4.items.index(ff4.CURE2)
-       else:
-        trigger.contents = ff4.items.index(ff4.CABIN)
+      if even:
+       trigger.contents = ff4.items.index(ff4.CURE2)
+      else:
+       trigger.contents = ff4.items.index(ff4.HEAL)
      elif item in tier5:
       trigger.contents = ff4.items.index(ff4.CURE3)
      elif item in tier6:
       trigger.contents = ff4.items.index(ff4.ETHER2)
      elif item in tier7:
       trigger.contents = ff4.items.index(ff4.ELIXIR)
-     
-      
+     else:
+      changed = False
+     if changed:
+      changed_treasures.append(trigger)
+ return changed_treasures
