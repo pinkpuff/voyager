@@ -1243,3 +1243,42 @@ def convert_jitems(ff4):
      if changed:
       changed_treasures.append(trigger)
  return changed_treasures
+
+# Prints a tilemap to the console (for debugging purposes).
+def print_tilemap(ff4, map):
+ for y in range(32):
+  line = ""
+  for x in range(32):
+   line += "{:02X} ".format(map.tiles[y][x])
+  print(line)
+
+# Fills a rectangle with the given tile.
+# Starts at the given (x, y) position and fills a (w by h) rectangle
+# including both endpoints.
+# (Used in map procgen)
+def fill_box(ff4, map, x, y, w, h, tile):
+ for row in range(y, y + h):
+  for col in range(x, x + w):
+   map.tiles[row][col] = tile
+
+# Replaces a tilemap with a procedurally generated one.
+# For now it just affects Antlion Cave B1 but eventually the map will
+# be passed as a parameter.
+def procgen(ff4):
+ map = ff4.tilemaps[ff4.ANTLION_CAVE_1F.tilemap]
+ print_tilemap(ff4, map)
+ abysstile = 0x6E
+ floortile = 0x36
+ rocktile = 0x7E
+ chesttile = 0x78
+ # To-do:
+ # - Make a Chest object that encodes a chest location and trigger
+ # - Scan the tilemap, making a list of existing chest locations
+ # - Scan the map's trigger list and set each chest's trigger index
+ # - Erase all the chests from the tilemap
+ # - Place an equivalent number of new chests
+ # - Update the corresponding triggers to have the (x, y) of new chests
+ 
+ # map.tiles[4][10] = rocktile
+ # fill_box(ff4, map, 0, 0, 32, 32, abysstile)
+ # fill_box(ff4, map, 1, 1, 30, 30, floortile)

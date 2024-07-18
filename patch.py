@@ -37,6 +37,7 @@ voyager.customize_levelups(ff4)
 voyager.customize_monsters(ff4)
 voyager.customize_maps(ff4, patchpath)
 changed_treasures = voyager.convert_jitems(ff4)
+# voyager.procgen(ff4)
 
 voyager.write_item_descriptions(ff4)
 
