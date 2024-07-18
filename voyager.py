@@ -1244,6 +1244,12 @@ def convert_jitems(ff4):
       changed_treasures.append(trigger)
  return changed_treasures
 
+class Chest:
+ def __init__(self, x = 0, y = 0, trigger = None):
+  self.x = x
+  self.y = y
+  self.trigger = trigger
+
 # Prints a tilemap to the console (for debugging purposes).
 def print_tilemap(ff4, map):
  for y in range(32):
@@ -1261,6 +1267,22 @@ def fill_box(ff4, map, x, y, w, h, tile):
   for col in range(x, x + w):
    map.tiles[row][col] = tile
 
+# Scans the given map for chest tiles and returns an array of Chest
+# objects with those locations and their corresponding triggers from
+# the map's trigger list.
+def scan_for_chests(ff4, map, chesttile):
+ chests = []
+ for y in range(32):
+  for x in range(32):
+   if map.tiles[y][x] == chesttile:
+    chest = Chest(x, y)
+    for trigger in map.triggers:
+     if trigger.x == chest.x and trigger.y == chest.y:
+      chest.trigger = trigger
+      break
+    chests.append(chest)
+ return chests
+
 # Replaces a tilemap with a procedurally generated one.
 # For now it just affects Antlion Cave B1 but eventually the map will
 # be passed as a parameter.
@@ -1271,8 +1293,9 @@ def procgen(ff4):
  floortile = 0x36
  rocktile = 0x7E
  chesttile = 0x78
+ chests = scan_for_chests(ff4, map, chesttile)
  # To-do:
- # - Make a Chest object that encodes a chest location and trigger
+ # * Make a Chest object that encodes a chest location and trigger
  # - Scan the tilemap, making a list of existing chest locations
  # - Scan the map's trigger list and set each chest's trigger index
  # - Erase all the chests from the tilemap

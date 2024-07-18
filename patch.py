@@ -1,5 +1,6 @@
 import sys
-sys.path.append("E:/Projects/Hacking/Gamingway/Source")
+#sys.path.append("E:/Projects/Hacking/Gamingway/Source")
+sys.path.append("/home/pinkpuff/Projects/Gamingway/Source/")
 from gamingway import FF4Rom
 import voyager
 
@@ -37,7 +38,7 @@ voyager.customize_levelups(ff4)
 voyager.customize_monsters(ff4)
 voyager.customize_maps(ff4, patchpath)
 changed_treasures = voyager.convert_jitems(ff4)
-# voyager.procgen(ff4)
+#voyager.procgen(ff4)
 
 voyager.write_item_descriptions(ff4)
 
