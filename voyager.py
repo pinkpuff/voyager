@@ -1271,10 +1271,11 @@ def fill_box(ff4, map, x, y, w, h, tile):
 # objects with those locations and their corresponding triggers from
 # the map's trigger list.
 def scan_for_chests(ff4, map, chesttile):
+ tilemap = ff4.tilemaps[map.tilemap]
  chests = []
  for y in range(32):
   for x in range(32):
-   if map.tiles[y][x] == chesttile:
+   if tilemap.tiles[y][x] == chesttile:
     chest = Chest(x, y)
     for trigger in map.triggers:
      if trigger.x == chest.x and trigger.y == chest.y:
@@ -1283,22 +1284,32 @@ def scan_for_chests(ff4, map, chesttile):
     chests.append(chest)
  return chests
 
+# Erases all chest tiles from the given tilemap.
+# Make sure the list of chests and corresponding triggers has been
+# constructed prior to calling this or the information will be lost.
+# The chest tiles are replaced with the given alternative tile.
+def erase_all_chests(ff4, tilemap, chests, alternative):
+ for chest in chests:
+  tilemap.tiles[chest.y][chest.x] == alternative 
+
 # Replaces a tilemap with a procedurally generated one.
 # For now it just affects Antlion Cave B1 but eventually the map will
 # be passed as a parameter.
 def procgen(ff4):
- map = ff4.tilemaps[ff4.ANTLION_CAVE_1F.tilemap]
- print_tilemap(ff4, map)
+ map = ff4.ANTLION_CAVE_1F
+ tilemap = ff4.tilemaps[map.tilemap]
+ #print_tilemap(ff4, tilemap)
  abysstile = 0x6E
  floortile = 0x36
  rocktile = 0x7E
  chesttile = 0x78
  chests = scan_for_chests(ff4, map, chesttile)
+ erase_all_chests(ff4, tilemap, chests, rocktile)
  # To-do:
  # * Make a Chest object that encodes a chest location and trigger
- # - Scan the tilemap, making a list of existing chest locations
- # - Scan the map's trigger list and set each chest's trigger index
- # - Erase all the chests from the tilemap
+ # * Scan the tilemap, making a list of existing chest locations
+ # * Scan the map's trigger list and set each chest's trigger index
+ # * Erase all the chests from the tilemap
  # - Place an equivalent number of new chests
  # - Update the corresponding triggers to have the (x, y) of new chests
  
