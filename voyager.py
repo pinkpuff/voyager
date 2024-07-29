@@ -740,7 +740,20 @@ def customize_bear(ff4):
   bearmessage = 0x1E8A5
   ff4.rom.data[bearmessage] = 50
   # print("{}".format(bearmessage))
-   
+
+# Change Ninja (magic) into Sing and give it to Edward instead of Edge.
+def customize_ninja(ff4):
+ # For now we'll just try giving Ninja to Edward without making any other changes and see if that works.
+ # fight = ff4.commands.index(ff4.FIGHT_COMMAND)
+ # item = ff4.commands.index(ff4.ITEM_COMMAND)
+ ninja = ff4.commands.index(ff4.NINJA_COMMAND)
+ # hide = ff4.commands.index(ff4.HIDE_COMMAND)
+ # heal = ff4.commands.index(ff4.HEAL_COMMAND)
+ # blank = 0xFF
+ # ff4.EDWARD1.commands = [fight, ninja, hide, heal, item]
+ ff4.EDWARD1.commands[1] = ninja
+ ff4.NINJA_COMMAND.name = "Sing"
+
 # This is just a shortcut to apply all the command customizations in
 # one function call.
 def customize_commands(ff4, patchpath):
@@ -748,6 +761,7 @@ def customize_commands(ff4, patchpath):
  customize_recall(ff4)
  customize_heal(ff4, patchpath)
  customize_bear(ff4)
+ # customize_ninja(ff4)
 
 # In vanilla, at sufficiently high levels, Yang suddenly stops gaining
 # max HP. This fixes that.
