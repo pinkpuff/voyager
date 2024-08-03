@@ -1,11 +1,11 @@
 import sys
-#sys.path.append("E:/Projects/Hacking/Gamingway/Source")
-sys.path.append("/home/pinkpuff/Projects/Gamingway/Source/")
+sys.path.append("E:/Projects/Hacking/Gamingway/Source")
+#sys.path.append("/home/pinkpuff/Projects/Gamingway/Source/")
 from gamingway import FF4Rom
 import voyager
 
-patchpath = "/home/pinkpuff/Projects/Voyager/Resources/"
-#patchpath = "E:/Projects/Hacking/Voyager/Resources/"
+#patchpath = "/home/pinkpuff/Projects/Voyager/Resources/"
+patchpath = "E:/Projects/Hacking/Voyager/Resources/"
 
 args = sys.argv
 if len(args) < 2:

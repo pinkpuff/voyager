@@ -743,24 +743,140 @@ def customize_bear(ff4):
 
 # Change Ninja (magic) into Sing and give it to Edward instead of Edge.
 def customize_ninja(ff4):
- # For now we'll just try giving Ninja to Edward without making any other changes and see if that works.
- # fight = ff4.commands.index(ff4.FIGHT_COMMAND)
- # item = ff4.commands.index(ff4.ITEM_COMMAND)
+ # TO DO: Remove the teaching of flood and blitz from the hook route event.
+ 
+ # Change the Ninja spells into songs with appropriate effects.
+ ff4.FLAME_SPELL.name = "[HRP]Alure"
+ ff4.FLAME_SPELL.delay = 1
+ ff4.FLAME_SPELL.target = 6
+ ff4.FLAME_SPELL.power = ff4.CHARM_SPELL.power
+ ff4.FLAME_SPELL.hit = 60
+ ff4.FLAME_SPELL.hitsboss = False
+ ff4.FLAME_SPELL.effect = ff4.CHARM_SPELL.effect
+ ff4.FLAME_SPELL.damaging = False
+ ff4.FLAME_SPELL.impact = False
+ ff4.FLAME_SPELL.mp = 0
+ ff4.FLAME_SPELL.reflectable = False
+ ff4.FLAME_SPELL.palette = ff4.CHARM_SPELL.palette
+ ff4.FLAME_SPELL.sprites = ff4.CHARM_SPELL.sprites
+ ff4.FLAME_SPELL.visual1 = ff4.CHARM_SPELL.visual1
+ ff4.FLAME_SPELL.visual2 = ff4.CHARM_SPELL.visual2
+ ff4.FLAME_SPELL.sound = ff4.CHARM_SPELL.sound
+
+ ff4.FLOOD_SPELL.name = "[HRP]Elegy"
+ ff4.FLOOD_SPELL.delay = 2
+ ff4.FLOOD_SPELL.target = 6
+ ff4.FLOOD_SPELL.power = ff4.SLOW_SPELL.power
+ ff4.FLOOD_SPELL.hit = 99
+ ff4.FLOOD_SPELL.hitsboss = True
+ ff4.FLOOD_SPELL.effect = ff4.SLOW_SPELL.effect
+ ff4.FLOOD_SPELL.damaging = False
+ ff4.FLOOD_SPELL.impact = False
+ ff4.FLOOD_SPELL.mp = 0
+ ff4.FLOOD_SPELL.reflectable = False
+ ff4.FLOOD_SPELL.palette = ff4.SLOW_SPELL.palette
+ ff4.FLOOD_SPELL.sprites = ff4.SLOW_SPELL.sprites
+ ff4.FLOOD_SPELL.visual1 = ff4.SLOW_SPELL.visual1
+ ff4.FLOOD_SPELL.visual2 = ff4.SLOW_SPELL.visual2
+ ff4.FLOOD_SPELL.sound = ff4.SLOW_SPELL.sound
+ 
+ ff4.BLITZ_SPELL.name = "[HRP]Angel"
+ ff4.BLITZ_SPELL.delay = 4
+ ff4.BLITZ_SPELL.target = 2
+ ff4.BLITZ_SPELL.power = ff4.LIFE1_SPELL.power
+ ff4.BLITZ_SPELL.hit = 99
+ ff4.BLITZ_SPELL.hitsboss = False
+ ff4.BLITZ_SPELL.effect = ff4.LIFE1_SPELL.effect
+ ff4.BLITZ_SPELL.damaging = False
+ ff4.BLITZ_SPELL.impact = False
+ ff4.BLITZ_SPELL.mp = 0
+ ff4.BLITZ_SPELL.reflectable = False
+ ff4.BLITZ_SPELL.palette = ff4.LIFE1_SPELL.palette
+ ff4.BLITZ_SPELL.sprites = ff4.LIFE1_SPELL.sprites
+ ff4.BLITZ_SPELL.visual1 = ff4.LIFE1_SPELL.visual1
+ ff4.BLITZ_SPELL.visual2 = ff4.LIFE1_SPELL.visual2
+ ff4.BLITZ_SPELL.sound = ff4.LIFE1_SPELL.sound
+ 
+ ff4.PIN_SPELL.name =   "[HRP]Hymn"
+ ff4.PIN_SPELL.delay = 7
+ ff4.PIN_SPELL.target = 6
+ ff4.PIN_SPELL.power = 10
+ ff4.PIN_SPELL.hit = 99
+ ff4.PIN_SPELL.hitsboss = True
+ ff4.PIN_SPELL.effect = 30
+ ff4.PIN_SPELL.damaging = False
+ ff4.PIN_SPELL.impact = False
+ ff4.PIN_SPELL.mp = 0
+ ff4.PIN_SPELL.reflectable = False
+ ff4.PIN_SPELL.palette = ff4.VENOM_SPELL.palette
+ ff4.PIN_SPELL.sprites = ff4.VENOM_SPELL.sprites
+ ff4.PIN_SPELL.visual1 = ff4.VENOM_SPELL.visual1
+ ff4.PIN_SPELL.visual2 = ff4.VENOM_SPELL.visual2
+ ff4.PIN_SPELL.sound = ff4.VENOM_SPELL.sound
+ 
+ ff4.SMOKE_SPELL.name = "[HRP]Magic"
+ ff4.SMOKE_SPELL.delay = 16
+ ff4.SMOKE_SPELL.target = 2
+ ff4.SMOKE_SPELL.power = int((ff4.ETHER1.utility.power + ff4.ETHER2.utility.power) / 2)
+ ff4.SMOKE_SPELL.hit = 99
+ ff4.SMOKE_SPELL.hitsboss = False
+ ff4.SMOKE_SPELL.effect = ff4.ETHER1.utility.effect
+ ff4.SMOKE_SPELL.damaging = False
+ ff4.SMOKE_SPELL.impact = False
+ ff4.SMOKE_SPELL.mp = 0
+ ff4.SMOKE_SPELL.reflectable = False
+ ff4.SMOKE_SPELL.palette = ff4.CURE3_SPELL.palette
+ ff4.SMOKE_SPELL.sprites = ff4.CURE3_SPELL.sprites
+ ff4.SMOKE_SPELL.visual1 = ff4.CURE3_SPELL.visual1
+ ff4.SMOKE_SPELL.visual2 = ff4.CURE3_SPELL.visual2
+ ff4.SMOKE_SPELL.sound = ff4.CURE3_SPELL.sound
+ 
+ ff4.IMAGE_SPELL.name = "[HRP]Image"
+ ff4.IMAGE_SPELL.delay = 11
+ ff4.IMAGE_SPELL.target = 2
+ ff4.IMAGE_SPELL.power = ff4.BLINK_SPELL.power
+ ff4.IMAGE_SPELL.hit = 99
+ ff4.IMAGE_SPELL.hitsboss = True
+ ff4.IMAGE_SPELL.effect = ff4.BLINK_SPELL.effect
+ ff4.IMAGE_SPELL.damaging = False
+ ff4.IMAGE_SPELL.impact = False
+ ff4.IMAGE_SPELL.mp = 0
+ ff4.IMAGE_SPELL.reflectable = False
+ ff4.IMAGE_SPELL.palette = ff4.BLINK_SPELL.palette
+ ff4.IMAGE_SPELL.sprites = ff4.BLINK_SPELL.sprites
+ ff4.IMAGE_SPELL.visual1 = ff4.BLINK_SPELL.visual1
+ ff4.IMAGE_SPELL.visual2 = ff4.BLINK_SPELL.visual2
+ ff4.IMAGE_SPELL.sound = ff4.BLINK_SPELL.sound
+ 
+ # Give them some levels.
+ ff4.EDGE_NINJA.clear()
+ ff4.EDGE_NINJA.teach_spell(0, ff4.FLAME_SPELL)
+ ff4.EDGE_NINJA.teach_spell(0, ff4.FLOOD_SPELL)
+ ff4.EDGE_NINJA.teach_spell(16, ff4.BLITZ_SPELL)
+ ff4.EDGE_NINJA.teach_spell(25, ff4.PIN_SPELL)
+ ff4.EDGE_NINJA.teach_spell(36, ff4.IMAGE_SPELL)
+ ff4.EDGE_NINJA.teach_spell(49, ff4.SMOKE_SPELL)
+ 
+ # Give the Ninja battle command to Edward and remove it from Edge.
  ninja = ff4.commands.index(ff4.NINJA_COMMAND)
- # hide = ff4.commands.index(ff4.HIDE_COMMAND)
- # heal = ff4.commands.index(ff4.HEAL_COMMAND)
- # blank = 0xFF
- # ff4.EDWARD1.commands = [fight, ninja, hide, heal, item]
+ item = ff4.commands.index(ff4.ITEM_COMMAND)
+ blank = 0xFF
  ff4.EDWARD1.commands[1] = ninja
+ ff4.EDGE1.commands[3] = item
+ ff4.EDGE1.commands[4] = blank
+ # Rename it to Sing.
  ff4.NINJA_COMMAND.name = "Sing"
  ff4.BARD.black = 0x0C
- ff4.BARD.menu_black = ff4.BARD.black
  ff4.NINJA.black = 0xFF
  ff4.NINJA.menu_black = ff4.NINJA.black
- menu_name = ff4.text.ff4text("Sing ")
- bytes = ff4.text.to_bytes(menu_name)
- address = 0x
- ff4.rom.inject(address, bytes)
+ # == This part is cut because I can't find the right part to change to associate the changed spellbook
+ # == name to Edward instead of Edge in the Free Enterprise randomized rom. The byte changed by FF4kster
+ # == to achieve that doesn't seem to work and just bugs up the magic menu.
+ # menu_name = ff4.text.ff4text("Sing ")
+ # bytes = ff4.text.to_bytes(menu_name)
+ # address = 0xB405 
+ # ff4.rom.inject(address, bytes)
+ 
 
 # This is just a shortcut to apply all the command customizations in
 # one function call.
