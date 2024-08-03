@@ -753,6 +753,14 @@ def customize_ninja(ff4):
  # ff4.EDWARD1.commands = [fight, ninja, hide, heal, item]
  ff4.EDWARD1.commands[1] = ninja
  ff4.NINJA_COMMAND.name = "Sing"
+ ff4.BARD.black = 0x0C
+ ff4.BARD.menu_black = ff4.BARD.black
+ ff4.NINJA.black = 0xFF
+ ff4.NINJA.menu_black = ff4.NINJA.black
+ menu_name = ff4.text.ff4text("Sing ")
+ bytes = ff4.text.to_bytes(menu_name)
+ address = 0x
+ ff4.rom.inject(address, bytes)
 
 # This is just a shortcut to apply all the command customizations in
 # one function call.
@@ -761,7 +769,7 @@ def customize_commands(ff4, patchpath):
  customize_recall(ff4)
  customize_heal(ff4, patchpath)
  customize_bear(ff4)
- # customize_ninja(ff4)
+ customize_ninja(ff4)
 
 # In vanilla, at sufficiently high levels, Yang suddenly stops gaining
 # max HP. This fixes that.
