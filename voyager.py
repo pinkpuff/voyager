@@ -744,24 +744,42 @@ def customize_bear(ff4):
 # Change Ninja (magic) into Sing and give it to Edward instead of Edge.
 def customize_ninja(ff4):
  # TO DO: Remove the teaching of flood and blitz from the hook route event.
- 
- # Change the Ninja spells into songs with appropriate effects.
- ff4.FLAME_SPELL.name = "[HRP]Alure"
+
+ ff4.FLAME_SPELL.name = "[HRP]Shell" 
  ff4.FLAME_SPELL.delay = 1
- ff4.FLAME_SPELL.target = 6
- ff4.FLAME_SPELL.power = ff4.CHARM_SPELL.power
- ff4.FLAME_SPELL.hit = 60
- ff4.FLAME_SPELL.hitsboss = False
- ff4.FLAME_SPELL.effect = ff4.CHARM_SPELL.effect
+ ff4.FLAME_SPELL.target = 2
+ ff4.FLAME_SPELL.power = ff4.SHELL_SPELL.power
+ ff4.FLAME_SPELL.hit = 99
+ ff4.FLAME_SPELL.hitsboss = True
+ ff4.FLAME_SPELL.effect = ff4.SHELL_SPELL.effect
  ff4.FLAME_SPELL.damaging = False
+ ff4.FLAME_SPELL.attributes = ff4.SHELL_SPELL.attributes
  ff4.FLAME_SPELL.impact = False
  ff4.FLAME_SPELL.mp = 0
  ff4.FLAME_SPELL.reflectable = False
- ff4.FLAME_SPELL.palette = ff4.CHARM_SPELL.palette
- ff4.FLAME_SPELL.sprites = ff4.CHARM_SPELL.sprites
- ff4.FLAME_SPELL.visual1 = ff4.CHARM_SPELL.visual1
- ff4.FLAME_SPELL.visual2 = ff4.CHARM_SPELL.visual2
- ff4.FLAME_SPELL.sound = ff4.CHARM_SPELL.sound
+ ff4.FLAME_SPELL.palette = ff4.SHELL_SPELL.palette
+ ff4.FLAME_SPELL.sprites = ff4.SHELL_SPELL.sprites
+ ff4.FLAME_SPELL.visual1 = ff4.SHELL_SPELL.visual1
+ ff4.FLAME_SPELL.visual2 = ff4.SHELL_SPELL.visual2
+ ff4.FLAME_SPELL.sound = ff4.SHELL_SPELL.sound
+
+ # ff4.FLAME_SPELL.name = "[HRP]Alure"
+ # ff4.FLAME_SPELL.delay = 1
+ # ff4.FLAME_SPELL.target = 6
+ # ff4.FLAME_SPELL.power = ff4.CHARM_SPELL.power
+ # ff4.FLAME_SPELL.hit = 99
+ # ff4.FLAME_SPELL.hitsboss = False
+ # ff4.FLAME_SPELL.effect = ff4.CHARM_SPELL.effect
+ # ff4.FLAME_SPELL.damaging = False
+ # ff4.FLAME_SPELL.attributes = ff4.CHARM_SPELL.attributes
+ # ff4.FLAME_SPELL.impact = False
+ # ff4.FLAME_SPELL.mp = 0
+ # ff4.FLAME_SPELL.reflectable = False
+ # ff4.FLAME_SPELL.palette = ff4.CHARM_SPELL.palette
+ # ff4.FLAME_SPELL.sprites = ff4.CHARM_SPELL.sprites
+ # ff4.FLAME_SPELL.visual1 = ff4.CHARM_SPELL.visual1
+ # ff4.FLAME_SPELL.visual2 = ff4.CHARM_SPELL.visual2
+ # ff4.FLAME_SPELL.sound = ff4.CHARM_SPELL.sound
 
  ff4.FLOOD_SPELL.name = "[HRP]Elegy"
  ff4.FLOOD_SPELL.delay = 2
@@ -771,6 +789,7 @@ def customize_ninja(ff4):
  ff4.FLOOD_SPELL.hitsboss = True
  ff4.FLOOD_SPELL.effect = ff4.SLOW_SPELL.effect
  ff4.FLOOD_SPELL.damaging = False
+ ff4.FLOOD_SPELL.attributes = ff4.SLOW_SPELL.attributes
  ff4.FLOOD_SPELL.impact = False
  ff4.FLOOD_SPELL.mp = 0
  ff4.FLOOD_SPELL.reflectable = False
@@ -780,48 +799,51 @@ def customize_ninja(ff4):
  ff4.FLOOD_SPELL.visual2 = ff4.SLOW_SPELL.visual2
  ff4.FLOOD_SPELL.sound = ff4.SLOW_SPELL.sound
  
- ff4.BLITZ_SPELL.name = "[HRP]Angel"
- ff4.BLITZ_SPELL.delay = 4
+ ff4.BLITZ_SPELL.name = "[HRP]Final"
+ ff4.BLITZ_SPELL.delay = 16
  ff4.BLITZ_SPELL.target = 2
- ff4.BLITZ_SPELL.power = ff4.LIFE1_SPELL.power
+ ff4.BLITZ_SPELL.power = ff4.ELIXIR.utility.power
  ff4.BLITZ_SPELL.hit = 99
  ff4.BLITZ_SPELL.hitsboss = False
- ff4.BLITZ_SPELL.effect = ff4.LIFE1_SPELL.effect
+ ff4.BLITZ_SPELL.effect = ff4.ELIXIR.utility.effect
  ff4.BLITZ_SPELL.damaging = False
+ ff4.BLITZ_SPELL.attributes = ff4.ELIXIR.utility.attributes
  ff4.BLITZ_SPELL.impact = False
  ff4.BLITZ_SPELL.mp = 0
  ff4.BLITZ_SPELL.reflectable = False
- ff4.BLITZ_SPELL.palette = ff4.LIFE1_SPELL.palette
- ff4.BLITZ_SPELL.sprites = ff4.LIFE1_SPELL.sprites
- ff4.BLITZ_SPELL.visual1 = ff4.LIFE1_SPELL.visual1
- ff4.BLITZ_SPELL.visual2 = ff4.LIFE1_SPELL.visual2
- ff4.BLITZ_SPELL.sound = ff4.LIFE1_SPELL.sound
+ ff4.BLITZ_SPELL.palette = ff4.ELIXIR.utility.palette
+ ff4.BLITZ_SPELL.sprites = ff4.ELIXIR.utility.sprites
+ ff4.BLITZ_SPELL.visual1 = ff4.ELIXIR.utility.visual1
+ ff4.BLITZ_SPELL.visual2 = ff4.ELIXIR.utility.visual2
+ ff4.BLITZ_SPELL.sound = ff4.ELIXIR.utility.sound
  
- ff4.PIN_SPELL.name =   "[HRP]Hymn"
- ff4.PIN_SPELL.delay = 7
+ ff4.PIN_SPELL.name = "[HRP]Hymn"
+ ff4.PIN_SPELL.delay = 4
  ff4.PIN_SPELL.target = 6
  ff4.PIN_SPELL.power = 10
  ff4.PIN_SPELL.hit = 99
  ff4.PIN_SPELL.hitsboss = True
  ff4.PIN_SPELL.effect = 30
  ff4.PIN_SPELL.damaging = False
+ ff4.PIN_SPELL.attributes = 0
  ff4.PIN_SPELL.impact = False
  ff4.PIN_SPELL.mp = 0
  ff4.PIN_SPELL.reflectable = False
- ff4.PIN_SPELL.palette = ff4.VENOM_SPELL.palette
- ff4.PIN_SPELL.sprites = ff4.VENOM_SPELL.sprites
- ff4.PIN_SPELL.visual1 = ff4.VENOM_SPELL.visual1
- ff4.PIN_SPELL.visual2 = ff4.VENOM_SPELL.visual2
- ff4.PIN_SPELL.sound = ff4.VENOM_SPELL.sound
+ ff4.PIN_SPELL.palette = ff4.WARP_SPELL.palette
+ ff4.PIN_SPELL.sprites = ff4.WARP_SPELL.sprites
+ ff4.PIN_SPELL.visual1 = ff4.WARP_SPELL.visual1
+ ff4.PIN_SPELL.visual2 = ff4.WARP_SPELL.visual2
+ ff4.PIN_SPELL.sound = ff4.WARP_SPELL.sound
  
  ff4.SMOKE_SPELL.name = "[HRP]Magic"
- ff4.SMOKE_SPELL.delay = 16
+ ff4.SMOKE_SPELL.delay = 11
  ff4.SMOKE_SPELL.target = 2
  ff4.SMOKE_SPELL.power = int((ff4.ETHER1.utility.power + ff4.ETHER2.utility.power) / 2)
  ff4.SMOKE_SPELL.hit = 99
  ff4.SMOKE_SPELL.hitsboss = False
  ff4.SMOKE_SPELL.effect = ff4.ETHER1.utility.effect
  ff4.SMOKE_SPELL.damaging = False
+ ff4.SMOKE_SPELL.attributes = ff4.ETHER1.utility.attributes
  ff4.SMOKE_SPELL.impact = False
  ff4.SMOKE_SPELL.mp = 0
  ff4.SMOKE_SPELL.reflectable = False
@@ -832,13 +854,14 @@ def customize_ninja(ff4):
  ff4.SMOKE_SPELL.sound = ff4.CURE3_SPELL.sound
  
  ff4.IMAGE_SPELL.name = "[HRP]Image"
- ff4.IMAGE_SPELL.delay = 11
+ ff4.IMAGE_SPELL.delay = 7
  ff4.IMAGE_SPELL.target = 2
  ff4.IMAGE_SPELL.power = ff4.BLINK_SPELL.power
  ff4.IMAGE_SPELL.hit = 99
  ff4.IMAGE_SPELL.hitsboss = True
  ff4.IMAGE_SPELL.effect = ff4.BLINK_SPELL.effect
  ff4.IMAGE_SPELL.damaging = False
+ ff4.IMAGE_SPELL.attributes = ff4.BLINK_SPELL.attributes
  ff4.IMAGE_SPELL.impact = False
  ff4.IMAGE_SPELL.mp = 0
  ff4.IMAGE_SPELL.reflectable = False
@@ -852,10 +875,10 @@ def customize_ninja(ff4):
  ff4.EDGE_NINJA.clear()
  ff4.EDGE_NINJA.teach_spell(0, ff4.FLAME_SPELL)
  ff4.EDGE_NINJA.teach_spell(0, ff4.FLOOD_SPELL)
- ff4.EDGE_NINJA.teach_spell(16, ff4.BLITZ_SPELL)
- ff4.EDGE_NINJA.teach_spell(25, ff4.PIN_SPELL)
- ff4.EDGE_NINJA.teach_spell(36, ff4.IMAGE_SPELL)
- ff4.EDGE_NINJA.teach_spell(49, ff4.SMOKE_SPELL)
+ ff4.EDGE_NINJA.teach_spell(16, ff4.PIN_SPELL)
+ ff4.EDGE_NINJA.teach_spell(25, ff4.IMAGE_SPELL)
+ ff4.EDGE_NINJA.teach_spell(36, ff4.SMOKE_SPELL)
+ ff4.EDGE_NINJA.teach_spell(49, ff4.BLITZ_SPELL)
  
  # Give the Ninja battle command to Edward and remove it from Edge.
  ninja = ff4.commands.index(ff4.NINJA_COMMAND)
