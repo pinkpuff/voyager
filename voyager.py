@@ -829,11 +829,11 @@ def customize_ninja(ff4):
  ff4.PIN_SPELL.impact = False
  ff4.PIN_SPELL.mp = 0
  ff4.PIN_SPELL.reflectable = False
- ff4.PIN_SPELL.palette = ff4.WARP_SPELL.palette
- ff4.PIN_SPELL.sprites = ff4.WARP_SPELL.sprites
- ff4.PIN_SPELL.visual1 = ff4.WARP_SPELL.visual1
- ff4.PIN_SPELL.visual2 = ff4.WARP_SPELL.visual2
- ff4.PIN_SPELL.sound = ff4.WARP_SPELL.sound
+ ff4.PIN_SPELL.palette = ff4.VENOM_SPELL.palette
+ ff4.PIN_SPELL.sprites = ff4.VENOM_SPELL.sprites
+ ff4.PIN_SPELL.visual1 = ff4.VENOM_SPELL.visual1
+ ff4.PIN_SPELL.visual2 = ff4.VENOM_SPELL.visual2
+ ff4.PIN_SPELL.sound = ff4.VENOM_SPELL.sound
  
  ff4.SMOKE_SPELL.name = "[HRP]Magic"
  ff4.SMOKE_SPELL.delay = 11

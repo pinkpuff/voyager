@@ -60,7 +60,7 @@ ff4.write("maps", False)
 trigger_address = ff4.rom.TRIGGER_DATA_START
 for map in ff4.maps:
  for trigger in map.triggers:
-  if trigger in changed_treasures:
+  if trigger in changed_treasures or map == ff4.KAIPO_TOWN:
    trigger.write(ff4.rom, trigger_address)
   trigger_address += 5
 
