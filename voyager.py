@@ -743,142 +743,131 @@ def customize_bear(ff4):
 
 # Change Ninja (magic) into Sing and give it to Edward instead of Edge.
 def customize_ninja(ff4):
+ 
  # TO DO: Remove the teaching of flood and blitz from the hook route event.
+ 
+ SHELL_SONG = ff4.FLOOD_SPELL
+ SHELL_SONG.name = "[HRP]Shell" 
+ SHELL_SONG.delay = 1
+ SHELL_SONG.target = 2
+ SHELL_SONG.power = ff4.SHELL_SPELL.power
+ SHELL_SONG.hit = 99
+ SHELL_SONG.hitsboss = True
+ SHELL_SONG.effect = ff4.SHELL_SPELL.effect
+ SHELL_SONG.damaging = False
+ SHELL_SONG.attributes = ff4.SHELL_SPELL.attributes
+ SHELL_SONG.impact = False
+ SHELL_SONG.mp = 0
+ SHELL_SONG.reflectable = False
+ SHELL_SONG.palette = ff4.SHELL_SPELL.palette
+ SHELL_SONG.sprites = ff4.SHELL_SPELL.sprites
+ SHELL_SONG.visual1 = ff4.SHELL_SPELL.visual1
+ SHELL_SONG.visual2 = ff4.SHELL_SPELL.visual2
+ SHELL_SONG.sound = ff4.SHELL_SPELL.sound
 
- ff4.FLAME_SPELL.name = "[HRP]Shell" 
- ff4.FLAME_SPELL.delay = 1
- ff4.FLAME_SPELL.target = 2
- ff4.FLAME_SPELL.power = ff4.SHELL_SPELL.power
- ff4.FLAME_SPELL.hit = 99
- ff4.FLAME_SPELL.hitsboss = True
- ff4.FLAME_SPELL.effect = ff4.SHELL_SPELL.effect
- ff4.FLAME_SPELL.damaging = False
- ff4.FLAME_SPELL.attributes = ff4.SHELL_SPELL.attributes
- ff4.FLAME_SPELL.impact = False
- ff4.FLAME_SPELL.mp = 0
- ff4.FLAME_SPELL.reflectable = False
- ff4.FLAME_SPELL.palette = ff4.SHELL_SPELL.palette
- ff4.FLAME_SPELL.sprites = ff4.SHELL_SPELL.sprites
- ff4.FLAME_SPELL.visual1 = ff4.SHELL_SPELL.visual1
- ff4.FLAME_SPELL.visual2 = ff4.SHELL_SPELL.visual2
- ff4.FLAME_SPELL.sound = ff4.SHELL_SPELL.sound
-
- # ff4.FLAME_SPELL.name = "[HRP]Alure"
- # ff4.FLAME_SPELL.delay = 1
- # ff4.FLAME_SPELL.target = 6
- # ff4.FLAME_SPELL.power = ff4.CHARM_SPELL.power
- # ff4.FLAME_SPELL.hit = 99
- # ff4.FLAME_SPELL.hitsboss = False
- # ff4.FLAME_SPELL.effect = ff4.CHARM_SPELL.effect
- # ff4.FLAME_SPELL.damaging = False
- # ff4.FLAME_SPELL.attributes = ff4.CHARM_SPELL.attributes
- # ff4.FLAME_SPELL.impact = False
- # ff4.FLAME_SPELL.mp = 0
- # ff4.FLAME_SPELL.reflectable = False
- # ff4.FLAME_SPELL.palette = ff4.CHARM_SPELL.palette
- # ff4.FLAME_SPELL.sprites = ff4.CHARM_SPELL.sprites
- # ff4.FLAME_SPELL.visual1 = ff4.CHARM_SPELL.visual1
- # ff4.FLAME_SPELL.visual2 = ff4.CHARM_SPELL.visual2
- # ff4.FLAME_SPELL.sound = ff4.CHARM_SPELL.sound
-
- ff4.FLOOD_SPELL.name = "[HRP]Elegy"
- ff4.FLOOD_SPELL.delay = 2
- ff4.FLOOD_SPELL.target = 6
- ff4.FLOOD_SPELL.power = ff4.SLOW_SPELL.power
- ff4.FLOOD_SPELL.hit = 99
- ff4.FLOOD_SPELL.hitsboss = True
- ff4.FLOOD_SPELL.effect = ff4.SLOW_SPELL.effect
- ff4.FLOOD_SPELL.damaging = False
- ff4.FLOOD_SPELL.attributes = ff4.SLOW_SPELL.attributes
- ff4.FLOOD_SPELL.impact = False
- ff4.FLOOD_SPELL.mp = 0
- ff4.FLOOD_SPELL.reflectable = False
- ff4.FLOOD_SPELL.palette = ff4.SLOW_SPELL.palette
- ff4.FLOOD_SPELL.sprites = ff4.SLOW_SPELL.sprites
- ff4.FLOOD_SPELL.visual1 = ff4.SLOW_SPELL.visual1
- ff4.FLOOD_SPELL.visual2 = ff4.SLOW_SPELL.visual2
- ff4.FLOOD_SPELL.sound = ff4.SLOW_SPELL.sound
+ ELEGY_SONG = ff4.BLITZ_SPELL
+ ELEGY_SONG.name = "[HRP]Elegy"
+ ELEGY_SONG.delay = 2
+ ELEGY_SONG.target = 6
+ ELEGY_SONG.power = ff4.SLOW_SPELL.power
+ ELEGY_SONG.hit = 99
+ ELEGY_SONG.hitsboss = True
+ ELEGY_SONG.effect = ff4.SLOW_SPELL.effect
+ ELEGY_SONG.damaging = False
+ ELEGY_SONG.attributes = ff4.SLOW_SPELL.attributes
+ ELEGY_SONG.impact = False
+ ELEGY_SONG.mp = 0
+ ELEGY_SONG.reflectable = False
+ ELEGY_SONG.palette = ff4.SLOW_SPELL.palette
+ ELEGY_SONG.sprites = ff4.SLOW_SPELL.sprites
+ ELEGY_SONG.visual1 = ff4.SLOW_SPELL.visual1
+ ELEGY_SONG.visual2 = ff4.SLOW_SPELL.visual2
+ ELEGY_SONG.sound = ff4.SLOW_SPELL.sound
  
- ff4.BLITZ_SPELL.name = "[HRP]Final"
- ff4.BLITZ_SPELL.delay = 16
- ff4.BLITZ_SPELL.target = 2
- ff4.BLITZ_SPELL.power = ff4.ELIXIR.utility.power
- ff4.BLITZ_SPELL.hit = 99
- ff4.BLITZ_SPELL.hitsboss = False
- ff4.BLITZ_SPELL.effect = ff4.ELIXIR.utility.effect
- ff4.BLITZ_SPELL.damaging = False
- ff4.BLITZ_SPELL.attributes = ff4.ELIXIR.utility.attributes
- ff4.BLITZ_SPELL.impact = False
- ff4.BLITZ_SPELL.mp = 0
- ff4.BLITZ_SPELL.reflectable = False
- ff4.BLITZ_SPELL.palette = ff4.ELIXIR.utility.palette
- ff4.BLITZ_SPELL.sprites = ff4.ELIXIR.utility.sprites
- ff4.BLITZ_SPELL.visual1 = ff4.ELIXIR.utility.visual1
- ff4.BLITZ_SPELL.visual2 = ff4.ELIXIR.utility.visual2
- ff4.BLITZ_SPELL.sound = ff4.ELIXIR.utility.sound
+ HYMN_SONG = ff4.FLAME_SPELL
+ HYMN_SONG.name = "[HRP]Hymn"
+ HYMN_SONG.delay = 4
+ HYMN_SONG.target = 6
+ HYMN_SONG.power = 10
+ HYMN_SONG.hit = 99
+ HYMN_SONG.hitsboss = True
+ HYMN_SONG.effect = 30
+ HYMN_SONG.damaging = False
+ HYMN_SONG.attributes = 0
+ HYMN_SONG.impact = False
+ HYMN_SONG.mp = 0
+ HYMN_SONG.reflectable = False
+ HYMN_SONG.palette = ff4.VENOM_SPELL.palette
+ HYMN_SONG.sprites = ff4.VENOM_SPELL.sprites
+ HYMN_SONG.visual1 = ff4.VENOM_SPELL.visual1
+ HYMN_SONG.visual2 = ff4.VENOM_SPELL.visual2
+ HYMN_SONG.sound = ff4.VENOM_SPELL.sound
  
- ff4.PIN_SPELL.name = "[HRP]Hymn"
- ff4.PIN_SPELL.delay = 4
- ff4.PIN_SPELL.target = 6
- ff4.PIN_SPELL.power = 10
- ff4.PIN_SPELL.hit = 99
- ff4.PIN_SPELL.hitsboss = True
- ff4.PIN_SPELL.effect = 30
- ff4.PIN_SPELL.damaging = False
- ff4.PIN_SPELL.attributes = 0
- ff4.PIN_SPELL.impact = False
- ff4.PIN_SPELL.mp = 0
- ff4.PIN_SPELL.reflectable = False
- ff4.PIN_SPELL.palette = ff4.VENOM_SPELL.palette
- ff4.PIN_SPELL.sprites = ff4.VENOM_SPELL.sprites
- ff4.PIN_SPELL.visual1 = ff4.VENOM_SPELL.visual1
- ff4.PIN_SPELL.visual2 = ff4.VENOM_SPELL.visual2
- ff4.PIN_SPELL.sound = ff4.VENOM_SPELL.sound
+ IMAGE_SONG = ff4.PIN_SPELL
+ IMAGE_SONG.name = "[HRP]Image"
+ IMAGE_SONG.delay = 7
+ IMAGE_SONG.target = 2
+ IMAGE_SONG.power = ff4.BLINK_SPELL.power
+ IMAGE_SONG.hit = 99
+ IMAGE_SONG.hitsboss = True
+ IMAGE_SONG.effect = ff4.BLINK_SPELL.effect
+ IMAGE_SONG.damaging = False
+ IMAGE_SONG.attributes = ff4.BLINK_SPELL.attributes
+ IMAGE_SONG.impact = False
+ IMAGE_SONG.mp = 0
+ IMAGE_SONG.reflectable = False
+ IMAGE_SONG.palette = ff4.BLINK_SPELL.palette
+ IMAGE_SONG.sprites = ff4.BLINK_SPELL.sprites
+ IMAGE_SONG.visual1 = ff4.BLINK_SPELL.visual1
+ IMAGE_SONG.visual2 = ff4.BLINK_SPELL.visual2
+ IMAGE_SONG.sound = ff4.BLINK_SPELL.sound
  
- ff4.SMOKE_SPELL.name = "[HRP]Magic"
- ff4.SMOKE_SPELL.delay = 11
- ff4.SMOKE_SPELL.target = 2
- ff4.SMOKE_SPELL.power = int((ff4.ETHER1.utility.power + ff4.ETHER2.utility.power) / 2)
- ff4.SMOKE_SPELL.hit = 99
- ff4.SMOKE_SPELL.hitsboss = False
- ff4.SMOKE_SPELL.effect = ff4.ETHER1.utility.effect
- ff4.SMOKE_SPELL.damaging = False
- ff4.SMOKE_SPELL.attributes = ff4.ETHER1.utility.attributes
- ff4.SMOKE_SPELL.impact = False
- ff4.SMOKE_SPELL.mp = 0
- ff4.SMOKE_SPELL.reflectable = False
- ff4.SMOKE_SPELL.palette = ff4.CURE3_SPELL.palette
- ff4.SMOKE_SPELL.sprites = ff4.CURE3_SPELL.sprites
- ff4.SMOKE_SPELL.visual1 = ff4.CURE3_SPELL.visual1
- ff4.SMOKE_SPELL.visual2 = ff4.CURE3_SPELL.visual2
- ff4.SMOKE_SPELL.sound = ff4.CURE3_SPELL.sound
+ MAGIC_SONG = ff4.SMOKE_SPELL
+ MAGIC_SONG.name = "[HRP]Magic"
+ MAGIC_SONG.delay = 11
+ MAGIC_SONG.target = 2
+ MAGIC_SONG.power = int((ff4.ETHER1.utility.power + ff4.ETHER2.utility.power) / 2)
+ MAGIC_SONG.hit = 99
+ MAGIC_SONG.hitsboss = False
+ MAGIC_SONG.effect = ff4.ETHER1.utility.effect
+ MAGIC_SONG.damaging = False
+ MAGIC_SONG.attributes = ff4.ETHER1.utility.attributes
+ MAGIC_SONG.impact = False
+ MAGIC_SONG.mp = 0
+ MAGIC_SONG.reflectable = False
+ MAGIC_SONG.palette = ff4.CURE3_SPELL.palette
+ MAGIC_SONG.sprites = ff4.CURE3_SPELL.sprites
+ MAGIC_SONG.visual1 = ff4.CURE3_SPELL.visual1
+ MAGIC_SONG.visual2 = ff4.CURE3_SPELL.visual2
+ MAGIC_SONG.sound = ff4.CURE3_SPELL.sound
  
- ff4.IMAGE_SPELL.name = "[HRP]Image"
- ff4.IMAGE_SPELL.delay = 7
- ff4.IMAGE_SPELL.target = 2
- ff4.IMAGE_SPELL.power = ff4.BLINK_SPELL.power
- ff4.IMAGE_SPELL.hit = 99
- ff4.IMAGE_SPELL.hitsboss = True
- ff4.IMAGE_SPELL.effect = ff4.BLINK_SPELL.effect
- ff4.IMAGE_SPELL.damaging = False
- ff4.IMAGE_SPELL.attributes = ff4.BLINK_SPELL.attributes
- ff4.IMAGE_SPELL.impact = False
- ff4.IMAGE_SPELL.mp = 0
- ff4.IMAGE_SPELL.reflectable = False
- ff4.IMAGE_SPELL.palette = ff4.BLINK_SPELL.palette
- ff4.IMAGE_SPELL.sprites = ff4.BLINK_SPELL.sprites
- ff4.IMAGE_SPELL.visual1 = ff4.BLINK_SPELL.visual1
- ff4.IMAGE_SPELL.visual2 = ff4.BLINK_SPELL.visual2
- ff4.IMAGE_SPELL.sound = ff4.BLINK_SPELL.sound
+ OPUS_SONG = ff4.IMAGE_SPELL
+ OPUS_SONG.name = "[HRP]Opus"
+ OPUS_SONG.delay = 16
+ OPUS_SONG.target = 2
+ OPUS_SONG.power = ff4.ELIXIR.utility.power
+ OPUS_SONG.hit = 99
+ OPUS_SONG.hitsboss = False
+ OPUS_SONG.effect = ff4.ELIXIR.utility.effect
+ OPUS_SONG.damaging = False
+ OPUS_SONG.attributes = ff4.ELIXIR.utility.attributes
+ OPUS_SONG.impact = False
+ OPUS_SONG.mp = 0
+ OPUS_SONG.reflectable = False
+ OPUS_SONG.palette = ff4.ELIXIR.utility.palette
+ OPUS_SONG.sprites = ff4.ELIXIR.utility.sprites
+ OPUS_SONG.visual1 = ff4.ELIXIR.utility.visual1
+ OPUS_SONG.visual2 = ff4.ELIXIR.utility.visual2
+ OPUS_SONG.sound = ff4.ELIXIR.utility.sound
  
  # Give them some levels.
  ff4.EDGE_NINJA.clear()
- ff4.EDGE_NINJA.teach_spell(0, ff4.FLAME_SPELL)
- ff4.EDGE_NINJA.teach_spell(0, ff4.FLOOD_SPELL)
- ff4.EDGE_NINJA.teach_spell(16, ff4.PIN_SPELL)
- ff4.EDGE_NINJA.teach_spell(25, ff4.IMAGE_SPELL)
- ff4.EDGE_NINJA.teach_spell(36, ff4.SMOKE_SPELL)
- ff4.EDGE_NINJA.teach_spell(49, ff4.BLITZ_SPELL)
+ ff4.EDGE_NINJA.teach_spell(0, SHELL_SONG)
+ ff4.EDGE_NINJA.teach_spell(0, ELEGY_SONG)
+ ff4.EDGE_NINJA.teach_spell(16, HYMN_SONG)
+ ff4.EDGE_NINJA.teach_spell(25, IMAGE_SONG)
+ ff4.EDGE_NINJA.teach_spell(36, MAGIC_SONG)
+ ff4.EDGE_NINJA.teach_spell(49, OPUS_SONG)
  
  # Give the Ninja battle command to Edward and remove it from Edge.
  ninja = ff4.commands.index(ff4.NINJA_COMMAND)
