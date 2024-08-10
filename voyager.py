@@ -854,11 +854,11 @@ def customize_ninja(ff4):
  OPUS_SONG.impact = False
  OPUS_SONG.mp = 0
  OPUS_SONG.reflectable = False
- OPUS_SONG.palette = ff4.ELIXIR.utility.palette
- OPUS_SONG.sprites = ff4.ELIXIR.utility.sprites
- OPUS_SONG.visual1 = ff4.ELIXIR.utility.visual1
- OPUS_SONG.visual2 = ff4.ELIXIR.utility.visual2
- OPUS_SONG.sound = ff4.ELIXIR.utility.sound
+ OPUS_SONG.palette = ff4.CURE4_SPELL.palette
+ OPUS_SONG.sprites = ff4.CURE4_SPELL.sprites
+ OPUS_SONG.visual1 = ff4.CURE4_SPELL.visual1
+ OPUS_SONG.visual2 = ff4.CURE4_SPELL.visual2
+ OPUS_SONG.sound = ff4.CURE4_SPELL.sound
  
  # Give them some levels.
  ff4.EDGE_NINJA.clear()
