@@ -822,24 +822,24 @@ def customize_ninja(ff4):
  IMAGE_SONG.visual2 = ff4.BLINK_SPELL.visual2
  IMAGE_SONG.sound = ff4.BLINK_SPELL.sound
  
- MAGIC_SONG = ff4.SMOKE_SPELL
- MAGIC_SONG.name = "[HRP]Magic"
- MAGIC_SONG.delay = 11
- MAGIC_SONG.target = 2
- MAGIC_SONG.power = int((ff4.ETHER1.utility.power + ff4.ETHER2.utility.power) / 2)
- MAGIC_SONG.hit = 99
- MAGIC_SONG.hitsboss = False
- MAGIC_SONG.effect = ff4.ETHER1.utility.effect
- MAGIC_SONG.damaging = False
- MAGIC_SONG.attributes = ff4.ETHER1.utility.attributes
- MAGIC_SONG.impact = False
- MAGIC_SONG.mp = 0
- MAGIC_SONG.reflectable = False
- MAGIC_SONG.palette = ff4.CURE3_SPELL.palette
- MAGIC_SONG.sprites = ff4.CURE3_SPELL.sprites
- MAGIC_SONG.visual1 = ff4.CURE3_SPELL.visual1
- MAGIC_SONG.visual2 = ff4.CURE3_SPELL.visual2
- MAGIC_SONG.sound = ff4.CURE3_SPELL.sound
+ ECHO_SONG = ff4.SMOKE_SPELL
+ ECHO_SONG.name = "[HRP]Echo"
+ ECHO_SONG.delay = 11
+ ECHO_SONG.target = 2
+ ECHO_SONG.power = int((ff4.WALL_SPELL.power + ff4.WALL_SPELL.power) / 2)
+ ECHO_SONG.hit = 99
+ ECHO_SONG.hitsboss = False
+ ECHO_SONG.effect = ff4.WALL_SPELL.effect
+ ECHO_SONG.damaging = False
+ ECHO_SONG.attributes = ff4.WALL_SPELL.attributes
+ ECHO_SONG.impact = False
+ ECHO_SONG.mp = 0
+ ECHO_SONG.reflectable = False
+ ECHO_SONG.palette = ff4.WALL_SPELL.palette
+ ECHO_SONG.sprites = ff4.WALL_SPELL.sprites
+ ECHO_SONG.visual1 = ff4.WALL_SPELL.visual1
+ ECHO_SONG.visual2 = ff4.WALL_SPELL.visual2
+ ECHO_SONG.sound = ff4.WALL_SPELL.sound
  
  OPUS_SONG = ff4.IMAGE_SPELL
  OPUS_SONG.name = "[HRP]Opus"
@@ -866,7 +866,7 @@ def customize_ninja(ff4):
  ff4.EDGE_NINJA.teach_spell(0, ELEGY_SONG)
  ff4.EDGE_NINJA.teach_spell(16, HYMN_SONG)
  ff4.EDGE_NINJA.teach_spell(25, IMAGE_SONG)
- ff4.EDGE_NINJA.teach_spell(36, MAGIC_SONG)
+ ff4.EDGE_NINJA.teach_spell(36, ECHO_SONG)
  ff4.EDGE_NINJA.teach_spell(49, OPUS_SONG)
  
  # Give the Ninja battle command to Edward and remove it from Edge.
