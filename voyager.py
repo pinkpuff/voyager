@@ -584,6 +584,11 @@ def create_sledge_hammer(ff4):
  ff4.RUNEAXE.description[1] = line
  ff4.items[0x29], ff4.items[0x48] = ff4.items[0x48], ff4.items[0x29]
 
+# For the lulz and the funzies, let's change the Strength Ring to the
+# Fabul Gauntlet.
+def create_fabul_gauntlet(ff4):
+ ff4.STRENGTHRING.name = "[GLV]Fabul"
+
 # Normally the Mythril Staff casts Dispel, but if you use the Dispel
 # spell customizatiotn, it is now un-reflectable and able to hit bosses
 # (like the Wyvern), which makes it fairly high-level spell IMO, and so
@@ -639,6 +644,7 @@ def customize_gaia_gear(ff4):
 def customize_equipment(ff4):
  create_fairy_harp(ff4)
  create_sledge_hammer(ff4)
+ create_fabul_gauntlet(ff4)
  remove_dispel_from_staff(ff4)
  customize_venom_axe(ff4)
  customize_black_shirt(ff4)
@@ -888,7 +894,9 @@ def customize_ninja(ff4):
  # bytes = ff4.text.to_bytes(menu_name)
  # address = 0xB405 
  # ff4.rom.inject(address, bytes)
- 
+
+def customize_dark_wave(ff4, patchpath):
+ ff4.rom.apply_patch(patchpath + "Dark Wave Fix.ips", "unheadered")
 
 # This is just a shortcut to apply all the command customizations in
 # one function call.
@@ -898,6 +906,7 @@ def customize_commands(ff4, patchpath):
  customize_heal(ff4, patchpath)
  customize_bear(ff4)
  customize_ninja(ff4)
+ customize_dark_wave(ff4, patchpath)
 
 # In vanilla, at sufficiently high levels, Yang suddenly stops gaining
 # max HP. This fixes that.
